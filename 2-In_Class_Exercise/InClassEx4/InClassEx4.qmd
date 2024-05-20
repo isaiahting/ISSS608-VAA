@@ -1,0 +1,143 @@
+---
+title: "InClass Ex4"
+author: "Joshua TING"
+date: "May 4,, 2024"
+date-modified: "last-modified"
+execute:
+  eval: true
+  echo: true
+  warning: false
+  freeze: true
+---
+
+# In Class Exercise 4
+
+```{r}
+pacman::p_load(tidyverse, ggstatsplot, rstantools)
+```
+
+::: callout-tip
+## Tidyverse
+
+ggplot2, dplyr, tidyr, readr, purrr, tibble, stringr, forcats are in the package of Tidyverse.
+:::
+
+```{r}
+exam <- read_csv("data/Exam_data.csv")
+```
+
+```{r}
+set.seed(1234)
+```
+
+Parametric Testing
+
+```{r}
+#| code-fold: true
+#| code-summary: "Display Code"
+p <- gghistostats(
+  data = exam,
+  x = ENGLISH,
+  conf.level = 0.95,
+  type = "parametric",
+  test.value=60,
+  bin.args = list(color="black",
+                  fill = "grey50",
+                  alpha=0.7),
+  normal.curve = FALSE,
+  normal.curve.args = list(linewidth = 2),
+  xlab = "English scores"
+)
+```
+
+Populating the statistics results from above
+
+```{r}
+extract_stats(p)
+```
+
+Non Parametric - Wilcoxon
+
+```{r}
+#| code-fold: true
+#| code-summary: "Display Code"
+gghistostats(
+  data = exam,
+  x = ENGLISH,
+  conf.level = 0.95,
+  type = "np",
+  test.value=60,
+  bin.args = list(color="black",
+                  fill = "grey50",
+                  alpha=0.7),
+  normal.curve = TRUE,
+  normal.curve.args = list(linewidth = 1, color="darkblue"),
+  xlab = "English scores"
+)
+```
+
+```{r}
+ggdotplotstats(
+  data = exam,
+  x = ENGLISH,
+  y = CLASS,
+  title = "",
+  xlab = ""
+)
+```
+
+Pivot Table first
+
+```{r}
+exam_long <-  exam %>%
+  pivot_longer(
+    cols = ENGLISH:SCIENCE,
+    names_to = "SUBJECT",
+    values_to = "SCORES") %>%
+  filter(CLASS == "3A")
+
+```
+
+```{r}
+#| code-fold: true
+#| code-summary: "Display Code"
+ggwithinstats(
+  data = filter(exam_long,
+                SUBJECT %in%
+                    c("MATHS", "SCIENCE")),
+  x = SUBJECT,
+  y = SCORES,
+  type = "p"
+)
+```
+
+Scatterplot & Histogram
+
+```{r}
+ggscatterstats(
+  data = exam,
+  x = MATHS,
+  y = ENGLISH,
+  marginal = TRUE,
+  label.var = ID,
+  label.expression = ENGLISH > 90 & MATHS > 90,
+  )
+```
+
+## **10.4 Visualising Models**
+
+```{r}
+pacman::p_load(easystats)
+```
+
+[![easystats package](images/Screenshot 2024-05-04 at 14.44.19.png)](https://github.com/easystats/easystats?tab=readme-ov-file)
+
+
+```{r}
+pacman::p_load(readxl, performance, parameters, see)
+```
+
+
+Links:
+
+<https://indrajeetpatil.github.io/ggstatsplot/> Robust excludes outliers in analysis

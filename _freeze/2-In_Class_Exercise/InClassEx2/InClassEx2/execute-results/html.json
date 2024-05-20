@@ -1,0 +1,17 @@
+{
+  "hash": "d5582b26d4568b004fc70c3ef907b88b",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"InClassEx2\"\nauthor: \"Joshua TING\"\ndate: \"April 20, 2024\"\ndate-modified: \"last-modified\"\nexecute:\n  eval: true\n  echo: true\n  warning: false\n  freeze: true \n---\n\n::: {.cell}\n\n```{.r .cell-code}\npacman::p_load(tidyverse, ggdist, ggthemes, colorspaces, ggridges)\n```\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\ninstall.packages(\"BiocManager\")\n```\n\n::: {.cell-output .cell-output-stdout}\n\n```\n\nThe downloaded binary packages are in\n\t/var/folders/9x/2w2wmv3s5fxgypwr25b2nrt40000gn/T//RtmpxX72Xn/downloaded_packages\n```\n\n\n:::\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\nexam_df <-read.csv(\"~/Desktop/Exam_data.csv\")\n```\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\nggplot(exam_df, \n       aes(x=ENGLISH)) +\n  geom_density(\n    color = \"#BF2626\",\n    adjust = .65,\n    alpha = .6 #0-1 of darkness\n  )\n```\n\n::: {.cell-output-display}\n![](InClassEx2_files/figure-html/unnamed-chunk-4-1.png){width=672}\n:::\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\nmedian_eng <- median(exam_df$ENGLISH)\n\nmean_eng <- mean(exam_df$ENGLISH)\n\nstd_eng <- sd(exam_df$ENGLISH)\n\n \n\nggplot(exam_df,\n\n       aes(x = ENGLISH)) +\n\n  geom_density(\n\n    color = \"#1696d2\",\n\n    adjust = .65,\n\n    alpha = .6) +\n\n  stat_function(\n\n    fun = dnorm,\n\n    args = list(mean = mean_eng,\n\n                sd = std_eng),\n\n    col = \"grey30\",\n\n    size = .8) +\n\n  geom_vline(\n\n    aes(xintercept = mean_eng),\n\n    colour=\"#4d5887\",\n\n    linewidth = .6,\n\n    linetype = \"dashed\") +\n\n  annotate(geom = \"text\",\n\n           x = mean_eng - 8,\n\n           y = 0.04,\n\n           label = paste0(\"Mean ENGLISH: \",\n\n                          round((mean_eng), 2)),\n\n           color = \"#4d5887\") +\n\n  geom_vline(\n\n    aes(xintercept = median_eng),\n\n    colour = \"#00AFBB\",\n\n    linewidth = .6,\n\n    linetype = \"dashed\") +\n\n  annotate(geom = \"text\",\n\n           x = median_eng + 8,\n\n           y = 0.04,\n\n           label = paste0(\"Median ENGLISH: \",\n\n                   round((median_eng),2)),\n\n    color = \"#00AFBB\") +\n\n  labs(\n\n    title = \"Uneven Distribution of ENGLISH Score across Participants\",\n\n    subtitle = \"Median ENGLISH score is close to Mean score, but distribution density reveals multiple peaks and troughs\",\n\n    x = \"ENGLISH Score\") +\n\n  theme(\n\n    axis.title.y = element_blank(),\n\n    axis.text.y = element_blank(),\n\n    panel.grid.major = element_blank(),\n\n    plot.background = element_rect(\n\n      fill=\"#F8F3E6\",\n\n      colour=\"#F8F3E6\")\n\n  )\n```\n\n::: {.cell-output-display}\n![](InClassEx2_files/figure-html/unnamed-chunk-5-1.png){width=672}\n:::\n:::\n",
+    "supporting": [
+      "InClassEx2_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

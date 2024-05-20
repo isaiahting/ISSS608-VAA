@@ -1,0 +1,106 @@
+---
+title: "InHandsEx5"
+author: "Joshua TING"
+date: "May 11, 2024"
+date-modified: "last-modified"
+execute:
+  eval: true
+  echo: true
+  warning: false
+  freeze: true
+---
+
+## Getting Started
+
+### Installing & Launching R packages
+
+The following R packages for handling, processing, wrangling, analysing and visualising text data will be used:
+
+```{r}
+pacman::p_load(tidyverse, readtext, quanteda, tidytext)
+```
+
+Packages:
+
+[readtext](https://readtext.quanteda.io/) is a one-function package that does exactly what it says on the tin: It reads files containing text, along with any associated document-level metadata, which we call “docvars”, for document variables. Plain text files do not have docvars, but other forms such as .csv, .tab, .xml, and .json files usually do.
+
+[**quanteda**](https://quanteda.io/) is a family of package is designed for R users needing to apply natural language processing to texts, from documents to final analysis. These are the following packages:
+
+-   **quanteda**: contains all of the core natural language processing and textual data management functions
+
+-   **quanteda.textmodels**: contains all of the text models and supporting functions, namely the `textmodel_*()` functions. This was split from the main package with the v2 release
+
+-   **quanteda.textstats**: statistics for textual data, namely the `textstat_*()` functions, split with the v3 release
+
+-   **quanteda.textplots**: plots for textual data, namely the `textplot_*()` functions, split with the v3 release
+
+Combing all files into one file
+
+```{r}
+text_data <- readtext(paste0("data/MC1/articles/*"))
+```
+
+::: callout-note
+## \* Wildcard Function
+
+\* is wildcard that enables to read all files in the "article" folder
+:::
+
+```{r}
+
+corpus_text <- corpus(text_data)
+summary(corpus_text, 5)
+
+```
+
+```{r}
+usenet_words <- text_data %>%
+  unnest_tokens(word, text) %>%
+  filter(str_detect(word, "[a-z']$"),
+  !word %in% stop_words$word)
+```
+
+::: callout-note
+## Stop Words
+
+[**Stop words**](https://en.wikipedia.org/wiki/Stop_word) are the words in a **stop list** (or ***stoplist*** or *negative dictionary*) which are filtered out (i.e. stopped) before or after processing of natural language data (text) because they are deemed insignificant.
+:::
+
+```{r}
+usenet_words %>%
+  count(word, sort = TRUE)
+```
+
+```{r}
+text_data_splitted <- text_data %>%
+  separate_wider_delim("doc_id",
+                        delim = "__0__",
+                        names = c("X", "Y"),
+                        too_few = "align_end")
+```
+
+`separate_wider_delim()` function from the `tidyr` package (part of the `tidyverse`). It separates a single column into multiple columns based on a specified delimiter. In this case, it's separating the "doc_id" column.
+
+`delim = "__0__",`: This argument specifies the delimiter used to separate the values in the "doc_id" column. Here, the delimiter is "**0**".
+
+`names = c("X", "Y"),`: This argument specifies the names for the new columns created after splitting the "doc_id" column. In this case, the new columns will be named "X" and "Y".
+
+`too_few = "align_end")`: This argument specifies how the function should handle cases where there are fewer pieces than the number of new columns specified in `names`. Here, `"align_end"` means that any missing pieces will be treated as empty strings (`""`) and added to the end of the new columns.
+
+::: callout-note
+## String r
+
+[String r](https://stringr.tidyverse.org/) can help to split words
+:::
+
+```{r}
+pacman::p_load(jsonlite, tidyverse)
+```
+
+In the code chunk below, `from JSON()` of **jsonlite** package is used to import *mc1.json* into R environment.
+
+```{r}
+mc1_data <- fromJSON("data/MC1/mc1.json")
+```
+
+This data contains of link and nodes.

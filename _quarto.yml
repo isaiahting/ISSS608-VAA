@@ -23,13 +23,13 @@ website:
       - text: "In-Class Exercise"
         menu:
           - text: "In-class Exercise 1"
-            href: "2-In_Class_Exercise/In-Class%20Ex1/InClassEx1.html"
+            href: "2-In_Class_Exercise/InClassEx1/InClassEx1.html"
           - text: "In-class Exercise 2"
-            href: "2-In_Class_Exercise/In-Class%20Ex2/InClassEx2.html"
+            href: "2-In_Class_Exercise/InClassEx2/InClassEx2.html"
           - text: "In-class Exercise 3"
-            href: "2-In_Class_Exercise/In-Class%20Ex3/InClassEx3.html"          
+            href: "2-In_Class_Exercise/InClassEx3/InClassEx3.html"          
           - text: "In-class Exercise 4"
-            href: "2-In_Class_Exercise/In-Class%20Ex4/InClassEx4.html"          
+            href: "2-In_Class_Exercise/InClassEx4/InClassEx4.html"          
           
       - text: "Take-Home Exercise"
         menu: 

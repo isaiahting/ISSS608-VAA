@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Joshua TING">
+<meta name="dcterms.date" content="2024-05-11">
 
-<title>The Visual Analytics - ISSS608-VAA</title>
+<title>The Visual Analytics - InHandsEx5</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,25 +22,59 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,7 +104,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -78,7 +114,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">The Visual Analytics</span>
     </a>
   </div>
@@ -94,27 +130,27 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-hands-on-exercise">    
         <li>
-    <a class="dropdown-item" href="./1-Hands_On_Exercise/HandsOnEx1/HandsOnEx1.html">
+    <a class="dropdown-item" href="../../1-Hands_On_Exercise/HandsOnEx1/HandsOnEx1.html">
  <span class="dropdown-text">Hands-on Exercise 1</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./1-Hands_On_Exercise/HandsOnEx2/HandsOnEx2.html">
+    <a class="dropdown-item" href="../../1-Hands_On_Exercise/HandsOnEx2/HandsOnEx2.html">
  <span class="dropdown-text">Hands-on Exercise 2</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./1-Hands_On_Exercise/HandsOnEx3/HandsOnEx3.html">
+    <a class="dropdown-item" href="../../1-Hands_On_Exercise/HandsOnEx3/HandsOnEx3.html">
  <span class="dropdown-text">Hands-on Exercise 3</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./1-Hands_On_Exercise/HandsOnEx4/HandsOnEx4.html">
+    <a class="dropdown-item" href="../../1-Hands_On_Exercise/HandsOnEx4/HandsOnEx4.html">
  <span class="dropdown-text">Hands-on Exercise 4</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./1-Hands_On_Exercise/HandsOnEx5/HandsOnEx5.html">
+    <a class="dropdown-item" href="../../1-Hands_On_Exercise/HandsOnEx5/HandsOnEx5.html">
  <span class="dropdown-text">Hands-on Exercise 5</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./1-Hands_On_Exercise/HandsOnEx6/HandsOnEx6.html">
+    <a class="dropdown-item" href="../../1-Hands_On_Exercise/HandsOnEx6/HandsOnEx6.html">
  <span class="dropdown-text">Hands-on Exercise 6</span></a>
   </li>  
     </ul>
@@ -125,19 +161,19 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-in-class-exercise">    
         <li>
-    <a class="dropdown-item" href="./2-In_Class_Exercise/InClassEx1/InClassEx1.html">
+    <a class="dropdown-item" href="../../2-In_Class_Exercise/In-Class Ex1/InClassEx1.html">
  <span class="dropdown-text">In-class Exercise 1</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./2-In_Class_Exercise/InClassEx2/InClassEx2.html">
+    <a class="dropdown-item" href="../../2-In_Class_Exercise/In-Class Ex2/InClassEx2.html">
  <span class="dropdown-text">In-class Exercise 2</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./2-In_Class_Exercise/InClassEx3/InClassEx3.html">
+    <a class="dropdown-item" href="../../2-In_Class_Exercise/In-Class Ex3/InClassEx3.html">
  <span class="dropdown-text">In-class Exercise 3</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./2-In_Class_Exercise/InClassEx4/InClassEx4.html">
+    <a class="dropdown-item" href="../../2-In_Class_Exercise/In-Class Ex4/InClassEx4.html">
  <span class="dropdown-text">In-class Exercise 4</span></a>
   </li>  
     </ul>
@@ -148,11 +184,11 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-take-home-exercise">    
         <li>
-    <a class="dropdown-item" href="./3-Take_Home_Exercise/TakeHomeEx1/TakeHomeEx1.html">
+    <a class="dropdown-item" href="../../3-Take_Home_Exercise/TakeHomeEx1/TakeHomeEx1.html">
  <span class="dropdown-text">Take-home Exercise 1</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./3-Take_Home_Exercise/TakeHomeEx02/TakeHomeEx02.html">
+    <a class="dropdown-item" href="../../3-Take_Home_Exercise/TakeHomeEx02/TakeHomeEx02.html">
  <span class="dropdown-text">Take-home Exercise 2</span></a>
   </li>  
     </ul>
@@ -168,11 +204,11 @@ ul.task-list li input[type="checkbox"] {
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">about the author.</span></a>
   </li>  
 </ul>
@@ -187,22 +223,49 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link active" data-scroll-target="#getting-started">Getting Started</a>
+  <ul class="collapse">
+  <li><a href="#installing-launching-r-packages" id="toc-installing-launching-r-packages" class="nav-link" data-scroll-target="#installing-launching-r-packages">Installing &amp; Launching R packages</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">ISSS608-VAA</h1>
+<h1 class="title">InHandsEx5</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Joshua TING </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 11, 2024</p>
+    </div>
+  </div>
   
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">May 15, 2024</p>
+    </div>
+  </div>
     
   </div>
   
@@ -211,13 +274,126 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Welcome to my Page!</p>
-<p>This website is crafted as part of a module’s requirement for the Master’s programme (Visual Analytics &amp; Application) under the esteemed guidance of A/Prof KAM Tin Seong.</p>
-<p>A Glimpse of my Journey:</p>
-<p><img src="images/troubleshoot.jpeg" class="img-fluid"></p>
-<pre><code></code></pre>
+<section id="getting-started" class="level2">
+<h2 class="anchored" data-anchor-id="getting-started">Getting Started</h2>
+<section id="installing-launching-r-packages" class="level3">
+<h3 class="anchored" data-anchor-id="installing-launching-r-packages">Installing &amp; Launching R packages</h3>
+<p>The following R packages for handling, processing, wrangling, analysing and visualising text data will be used:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse, readtext, quanteda, tidytext)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Packages:</p>
+<p><a href="https://readtext.quanteda.io/">readtext</a> is a one-function package that does exactly what it says on the tin: It reads files containing text, along with any associated document-level metadata, which we call “docvars”, for document variables. Plain text files do not have docvars, but other forms such as .csv, .tab, .xml, and .json files usually do.</p>
+<p><a href="https://quanteda.io/"><strong>quanteda</strong></a> is a family of package is designed for R users needing to apply natural language processing to texts, from documents to final analysis. These are the following packages:</p>
+<ul>
+<li><p><strong>quanteda</strong>: contains all of the core natural language processing and textual data management functions</p></li>
+<li><p><strong>quanteda.textmodels</strong>: contains all of the text models and supporting functions, namely the <code>textmodel_*()</code> functions. This was split from the main package with the v2 release</p></li>
+<li><p><strong>quanteda.textstats</strong>: statistics for textual data, namely the <code>textstat_*()</code> functions, split with the v3 release</p></li>
+<li><p><strong>quanteda.textplots</strong>: plots for textual data, namely the <code>textplot_*()</code> functions, split with the v3 release</p></li>
+</ul>
+<p>Combing all files into one file</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>text_data <span class="ot">&lt;-</span> <span class="fu">readtext</span>(<span class="fu">paste0</span>(<span class="st">"data/MC1/articles/*"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+* Wildcard Function
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>* is wildcard that enables to read all files in the “article” folder</p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>corpus_text <span class="ot">&lt;-</span> <span class="fu">corpus</span>(text_data)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(corpus_text, <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Corpus consisting of 338 documents, showing 5 documents:
+
+                                   Text Types Tokens Sentences
+ Alvarez PLC__0__0__Haacklee Herald.txt   206    433        18
+    Alvarez PLC__0__0__Lomark Daily.txt   102    170        12
+   Alvarez PLC__0__0__The News Buoy.txt    90    200         9
+ Alvarez PLC__0__1__Haacklee Herald.txt    96    187         8
+    Alvarez PLC__0__1__Lomark Daily.txt   241    504        21</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>usenet_words <span class="ot">&lt;-</span> text_data <span class="sc">%&gt;%</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_tokens</span>(word, text) <span class="sc">%&gt;%</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(word, <span class="st">"[a-z']$"</span>),</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="sc">!</span>word <span class="sc">%in%</span> stop_words<span class="sc">$</span>word)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Stop Words
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a href="https://en.wikipedia.org/wiki/Stop_word"><strong>Stop words</strong></a> are the words in a <strong>stop list</strong> (or <strong><em>stoplist</em></strong> or <em>negative dictionary</em>) which are filtered out (i.e.&nbsp;stopped) before or after processing of natural language data (text) because they are deemed insignificant.</p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>usenet_words <span class="sc">%&gt;%</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(word, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>readtext object consisting of 3261 documents and 0 docvars.
+# A data frame: 3,261 × 3
+  word             n text     
+  &lt;chr&gt;        &lt;int&gt; &lt;chr&gt;    
+1 fishing       2177 "\"\"..."
+2 sustainable   1525 "\"\"..."
+3 company       1036 "\"\"..."
+4 practices      838 "\"\"..."
+5 industry       715 "\"\"..."
+6 transactions   696 "\"\"..."
+# ℹ 3,255 more rows</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>text_data_splitted <span class="ot">&lt;-</span> text_data <span class="sc">%&gt;%</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate_wider_delim</span>(<span class="st">"doc_id"</span>,</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">delim =</span> <span class="st">"__0__"</span>,</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">names =</span> <span class="fu">c</span>(<span class="st">"X"</span>, <span class="st">"Y"</span>),</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>                        <span class="at">too_few =</span> <span class="st">"align_end"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>separate_wider_delim()</code> function from the <code>tidyr</code> package (part of the <code>tidyverse</code>). It separates a single column into multiple columns based on a specified delimiter. In this case, it’s separating the “doc_id” column.</p>
+<p><code>delim = "__0__",</code>: This argument specifies the delimiter used to separate the values in the “doc_id” column. Here, the delimiter is “<strong>0</strong>”.</p>
+<p><code>names = c("X", "Y"),</code>: This argument specifies the names for the new columns created after splitting the “doc_id” column. In this case, the new columns will be named “X” and “Y”.</p>
+<p><code>too_few = "align_end")</code>: This argument specifies how the function should handle cases where there are fewer pieces than the number of new columns specified in <code>names</code>. Here, <code>"align_end"</code> means that any missing pieces will be treated as empty strings (<code>""</code>) and added to the end of the new columns.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+String r
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a href="https://stringr.tidyverse.org/">String r</a> can help to split words</p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(jsonlite, tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>In the code chunk below, <code>from JSON()</code> of <strong>jsonlite</strong> package is used to import <em>mc1.json</em> into R environment.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>mc1_data <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(<span class="st">"data/MC1/mc1.json"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This data contains of link and nodes.</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
