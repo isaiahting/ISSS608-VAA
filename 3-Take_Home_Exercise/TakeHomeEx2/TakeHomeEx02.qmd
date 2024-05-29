@@ -289,6 +289,10 @@ b\. The numbers of the average transacted price labelled within each box and whi
 c\. Two outliers were eradicated as the box and whiskers plot appeared very narrowed. Thus the full spectrum of the outliers was not shown.
 ```
 
+## Post Submission Add-On
+
+Coming Soon.
+
 ## **References**
 
 Jones, B. (2012). Data Visualization: Clarity or Aesthetics. Retrieved from https://dataremixed.com/2012/05/data-visualization-clarity-or-aesthetics/
