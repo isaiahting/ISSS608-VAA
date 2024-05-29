@@ -130,13 +130,11 @@ ggscatterstats(
 pacman::p_load(easystats)
 ```
 
-[![easystats package](images/Screenshot 2024-05-04 at 14.44.19.png)](https://github.com/easystats/easystats?tab=readme-ov-file)
-
+[![easystats package](images/Screenshot%202024-05-04%20at%2014.44.19.png)](https://github.com/easystats/easystats?tab=readme-ov-file)
 
 ```{r}
 pacman::p_load(readxl, performance, parameters, see)
 ```
-
 
 Links:
 
