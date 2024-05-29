@@ -1,4 +1,153 @@
 ---
 title: "Take Home Exercise 3"
 author: "Joshua TING"
+date: "May 18, 2024"
+date-modified: "last-modified"
+execute:
+  eval: true
+  echo: true
+  warning: false
+  freeze: true
 ---
+
+```{r}
+pacman::p_load(jsonlite, tidygraph, ggraph,
+               visNetwork, graphlayouts, ggforce,
+               skimr, tidytext, tidyverse, gganimate,dplyr, lubridate)
+```
+
+## Data Import
+
+In the code chunk below, fromJSON() of jsonlite package is used to import mc2.json file into R and save the output object
+
+```{r}
+mc3_data <- fromJSON("data/mc3/mc3.json")
+```
+
+```{r}
+class(mc3_data)
+```
+
+## **Wrangling and tidying edges**
+
+extract and wrangle the edges object. (edges look at event (look at time period) and compare with nodes)
+
+```{r}
+mc3_edges <- as_tibble(mc3_data$links) %>%
+  distinct() #remove duplicate records
+  
+```
+
+```{r}
+glimpse(mc3_edges)
+```
+
+```{r}
+mc3_edges$start_date <- 
+  as_datetime(mc3_edges$start_date)
+```
+
+### **Correcting date data type**
+
+In the code chunk below, `as_datetime()` of **lubridate** package is used to convert fields with character date into **POSIXt** format.
+
+```{r}
+mc3_edges$time <- as_datetime(mc3_edges$start_date)
+mc3_edges$"_last_edited_date" <- as_datetime(mc3_edges$"_last_edited_date")
+mc3_edges$"_date_added" <- as_datetime(mc3_edges$"_date_added")
+mc3_edges$"date" <- as_datetime("mc3_edges$start_date")
+```
+
+```{r}
+glimpse(mc3_edges)
+```
+
+### **Changing field name**
+
+In the code chunk below, `rename()` of **dplyr** package is used to change the following fields.
+
+```{r}
+mc3_edges <- mc3_edges %>%
+  rename("last_edited_by" = "_last_edited_by",
+         "date_added" = "_date_added",
+         "last_edited_date" = "_last_edited_date",
+         "raw_source" = "_raw_source",
+         "algorithm" = "_algorithm") 
+```
+
+```{r}
+word_list <- strsplit(mc3_edges$type, "\\.")
+```
+
+The code chunk below will be used to find the maximum number of elements in any split
+
+```{r}
+max_elements <- max(lengths(word_list))
+```
+
+The code chunk below will be used to pad shorter splits with NA values to make them all the same length.
+
+```{r}
+word_list_padded <- lapply(word_list, 
+function(x) c(x, rep(NA, max_elements - length(x))))
+```
+
+```{r}
+word_df <- do.call(rbind, word_list_padded)
+colnames(word_df) <- paste0("event", 1:max_elements)
+```
+
+Since the output above is a matrix, the code chunk below is used to convert word_df into a tibble data.frame.
+
+```{r}
+word_df <- as_tibble(word_df) %>%
+  select(event2, event3)
+class(word_df)
+```
+
+```{r}
+mc3_edges <- mc3_edges %>%
+  cbind(word_df)
+```
+
+```{r}
+write_rds(mc3_edges, "data/rds/mc3_edges.rds")
+```
+
+## **Wrangling and tidying nodes**
+
+::: callout-warning
+## Warning
+
+This section mainly focuses on tidying and wrangling text data in the Activities column. For other data checking, tidying and wrangling tasks, please refer to the steps discussed above.
+:::
+
+### **Extracting nodes**
+
+The code chunk below will be used to extract the *nodes* data.frame of *mc2_data* and parses it as a tibble data.frame called *mc2_nodes*.
+
+```{r}
+mc3_nodes <- as_tibble(mc3_data$nodes) %>%
+  distinct()
+```
+
+```{r}
+glimpse(mc3_nodes)
+```
+
+From the table above, beside the date data type and inappropriate field name issues we discussed earlier, two additional data issues can be observed. They are:
+
+-   The values in Activities and fish_species_present fields are in **list** data type, which will affect the ability to process and to analyse the data.
+
+-   As shown in the screenshot below, some values in the Activities field are not ready to be analyse without further tidying (i.e. removing c(““)).
+
+### **Tidying text field**
+
+In the code chunk below, `mutate()` of dplyr and `gsub()` of Base R are used to perform the data todying task.
+
+```{r}
+mc3_nodes_tidied <- mc3_nodes %>%
+  mutate(type = gsub("[(]", "", type)) %>% 
+  mutate(type = gsub("\"", "", type)) %>%
+  mutate(type = gsub("[)]", "", type)) 
+```
