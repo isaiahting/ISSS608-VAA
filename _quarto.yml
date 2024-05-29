@@ -27,9 +27,13 @@ website:
           - text: "In-class Exercise 2"
             href: "2-In_Class_Exercise/InClassEx2/InClassEx2.html"
           - text: "In-class Exercise 3"
-            href: "2-In_Class_Exercise/InClassEx3/InClassEx3.html"          
+            href: "https://public.tableau.com/app/profile/joshua.ting4428/viz/QuarterlyPrivatePropertyWatcher2023-Q12024/Dashboard1?publish=yes"          
           - text: "In-class Exercise 4"
-            href: "2-In_Class_Exercise/InClassEx4/InClassEx4.html"          
+            href: "2-In_Class_Exercise/InClassEx4/InClassEx4.html"
+          - text: "In-class Exercise 5"
+            href: "2-In_Class_Exercise/InClassEx5/InClassEx5.html" 
+          - text: "In-class Exercise 6"
+            href: "2-In_Class_Exercise/InClassEx6/InClassEx6.html" 
           
       - text: "Take-Home Exercise"
         menu: 
