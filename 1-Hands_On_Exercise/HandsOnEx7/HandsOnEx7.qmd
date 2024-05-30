@@ -1,0 +1,25 @@
+---
+title: "Hands On Exercise 7"
+author: "Joshua TING"
+date: "May 31, 2024"
+date-modified: "last-modified"
+execute:
+  eval: true
+  echo: true
+  warning: false
+  freeze: true
+---
+
+# **17 Visualising and Analysing Time-oriented Data**
+
+## **17.1 Learning Outcome**
+
+By the end of this hands-on exercise you will be able create the followings data visualisation by using R packages:
+
+-   plotting a calender heatmap by using ggplot2 functions,
+
+-   plotting a cycle plot by using ggplot2 function,
+
+-   plotting a slopegraph
+
+-   plotting a horizon chart
