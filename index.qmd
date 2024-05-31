@@ -1,5 +1,10 @@
 ---
-title: "ISSS608-VAA"
+title: "ISSS608 Visual Analytics & Applications"
+listing:
+  max-items: 9
+  type: grid
+  sort:
+      "date desc"
 ---
 
 Welcome to my Page!
