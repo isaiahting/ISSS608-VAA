@@ -43,6 +43,8 @@ website:
             href: "3-Take_Home_Exercise/TakeHomeEx1/TakeHomeEx1.html"
           - text: "Take-home Exercise 2"
             href: "3-Take_Home_Exercise/TakeHomeEx2/TakeHomeEx02.html"
+          - text: "Take-home Exercise 3"
+            href: "3-Take_Home_Exercise/TakeHomeEx3/TakeHomeEx03.html"
           
       - text: "Project"
         menu: 
